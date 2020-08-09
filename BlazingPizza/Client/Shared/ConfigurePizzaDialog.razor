@@ -7,7 +7,21 @@
         <form class="dialog-body">
             <div>
                 <label>Size:</label>
-                <input type="range" min="@Pizza.MinimumSize" max="@Pizza.MaximumSize" step="1" />
+                @*These 2 ways below are the same: value updated only when slider is released*@
+                @*<input type="range"
+                    min="@Pizza.MinimumSize"
+                    max="@Pizza.MaximumSize"
+                    step="1"
+                    value="@Pizza.Size"
+                    @onchange="@((ChangeEventArgs e) => Pizza.Size = int.Parse((string)e.Value))" />*@
+                @*<input type="range" min="@Pizza.MinimumSize" max="@Pizza.MaximumSize" step="1" @bind="Pizza.Size" />*@
+
+                <input type="range"
+                       min="@Pizza.MinimumSize"
+                       max="@Pizza.MaximumSize"
+                       step="1"
+                       @bind="Pizza.Size"
+                       @bind:event="oninput" />
                 <span class="size-label">
                     @(Pizza.Size)" ($@(Pizza.GetFormattedTotalPrice()))
                 </span>
