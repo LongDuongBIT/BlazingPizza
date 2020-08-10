@@ -299,6 +299,43 @@ body {
         text-align: right;
     }
 
+    .dialog-body .toppings {
+        text-align: center;
+        display: block;
+        padding-left: 4rem;
+    }
+
+    .dialog-body .topping {
+        display: inline-block;
+        background-color: #a04343;
+        color: white;
+        padding: 0.2rem 1rem;
+        border-radius: 2rem;
+        margin: 0.4rem 0.3rem;
+        font-weight: 700;
+    }
+
+    .dialog-body .topping-price {
+        font-weight: 100;
+        font-size: 0.8rem;
+    }
+
+        .dialog-body .topping-price::before {
+            content: '£';
+        }
+
+    .dialog-body .delete-topping {
+        background: none;
+        border: none;
+        color: white;
+        padding: 0.2rem 0.2rem 0.3rem 0.2rem;
+        cursor: pointer;
+    }
+
+        .dialog-body .delete-topping:hover {
+            color: yellow;
+        }
+
 .dialog-buttons {
     height: 4rem;
     flex-shrink: 0;

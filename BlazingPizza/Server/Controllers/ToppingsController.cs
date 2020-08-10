@@ -8,19 +8,18 @@ using System.Threading.Tasks;
 
 namespace BlazingPizza.Server.Controllers
 {
-    [Route("specials")]
+    [Route("toppings")]
     [ApiController]
-    public class SpecialsController : Controller
+    public class ToppingsController : Controller
     {
         private readonly PizzaStoreContext _db;
 
-        public SpecialsController(PizzaStoreContext db)
+        public ToppingsController(PizzaStoreContext db)
         {
             _db = db;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<PizzaSpecial>>> GetSpecials()
-            => (await _db.Specials.ToListAsync()).OrderByDescending(x => x.BasePrice).ToList();
+        public async Task<ActionResult<List<Topping>>> GetToppings()
+            => await _db.Toppings.OrderBy(x => x.Name).ToListAsync();
     }
 }
